@@ -2,12 +2,28 @@
 				Kubernets Lab
 **************************************************************************************
 
-Configure the Environment/Download files
+Configure the Environment and Create GKE Cluster
 Execute below command (one by one)
 -------------------------------------------------
-	git clone https://github.com/hashmisf/k8s-gcp-training.git
+  #Set project ID
+	gcloud config set project [PROJECT_ID]
 
-	cd k8s-training/k8s/
+  #Set default region/zone
+	gcloud config set compute/region us-central1
+	gcloud config set compute/zone us-central1-a
+
+   #Enable GKE/GCR API's
+	gcloud services enable container.googleapis.com
+	gcloud services enable containerregistry.googleapis.com
+
+   #Create Kubernetes Engine Cluster (Nodes) named 'hello-cluster'
+	gcloud container clusters create hello-cluster --num-nodes=2
+
+   #Generating a kubeconfig entry 
+	gcloud container clusters get-credentials hello-cluster
+
+   #Go to yaml files directory
+	cd k8s-gcp-training/k8s/
 
 -------------------------------------------------
 		POD

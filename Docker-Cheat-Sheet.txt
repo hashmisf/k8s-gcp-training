@@ -3,17 +3,10 @@
 **************************************************************************************
 
 1. Configure the Environment/Download files
-1.1 Execute below command (one by one)
+1.1 Execute below command to clone the repository
 -------------------------------------------------
-	mkdir app
 
-	cd app
-
-	curl -O https://raw.githubusercontent.com/hashmisf/k8s-gcp-training/main/java/demoApp.jar
-
-	curl -O https://raw.githubusercontent.com/hashmisf/k8s-gcp-training/main/java/Dockerfile
-
-	cd ..
+	git clone https://github.com/hashmisf/k8s-gcp-training.git
 
 2. Build an image
 2.1 Build Image
