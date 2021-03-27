@@ -9,9 +9,9 @@
 
 	cd app
 
-	curl -O https://raw.githubusercontent.com/hashmisf/k8s-training/master/java/demoApp.jar
+	curl -O https://raw.githubusercontent.com/hashmisf/k8s-gcp-training/main/java/demoApp.jar
 
-	curl -O https://raw.githubusercontent.com/hashmisf/k8s-training/master/java/Dockerfile
+	curl -O https://raw.githubusercontent.com/hashmisf/k8s-gcp-training/main/java/Dockerfile
 
 	cd ..
 
