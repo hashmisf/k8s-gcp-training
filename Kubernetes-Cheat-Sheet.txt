@@ -23,7 +23,7 @@ Execute below command (one by one)
 	gcloud container clusters get-credentials hello-cluster
 
    #Go to yaml files directory
-	cd k8s-gcp-training/k8s/
+	cd ~/k8s-gcp-training/k8s/
 
 -------------------------------------------------
 		POD
@@ -41,13 +41,13 @@ Execute below command (one by one)
 
 	kubectl get pod -o wide
 
-	kubectl describe pod <POD-NAME>
+	kubectl describe pod my-pod
 
-	kubectl logs <POD-NAME>
+	kubectl logs my-pod
 
 1.3 Open Terminal to Pod
 
-	kubectl exec -it <POD-NAME> -- /bin/sh
+	kubectl exec -it my-pod -- /bin/sh
 
 	curl localhost
 
@@ -55,7 +55,7 @@ Execute below command (one by one)
 
 1.4 Delete Pod
 
-	kubectl delete pod <POD-NAME>
+	kubectl delete pod my-pod
 
 -------------------------------------------------
 		Deployment
@@ -68,11 +68,7 @@ Execute below command (one by one)
 
 	kubectl get deployments 
 
-	kubectl describe deployments <DEPLOYMENT-NAME>  
-
-2.3 Delete Pod (Don’t execute it in lab)
-
-	kubectl delete deployment <DEPLOYMENT-NAME> 
+	kubectl describe deployments my-deployment 
 
 -------------------------------------------------
 		Service
@@ -86,7 +82,7 @@ Execute below command (one by one)
 
 	kubectl get service
 
-	kubectl describe service <SERVICE-NAME>
+	kubectl describe service my-service
 
 	kubectl get endpoints
 
@@ -100,9 +96,11 @@ Execute below command (one by one)
 
 	wget -O- my-service:8000
 
+	exit
+
 3.4 Delete Service 
 
-	kubectl delete service <SERVICE-NAME>
+	kubectl delete service my-service
 
 3.5 Create Service with Load Balancer
 
@@ -114,8 +112,11 @@ Execute below command (one by one)
 
 3.7 Delete Service 
 
-	kubectl delete service <SERVICE-NAME>
+	kubectl delete service my-service-lb
 
+3.8 Delete Deployment
+
+	kubectl delete deploy my-deployment
 -------------------------------------------------
      Scaling / Horizontal Pod Auto Scaling
 -------------------------------------------------
@@ -149,6 +150,12 @@ Execute below command (one by one)
 16.6 Delete all deployment, replicaset, pods, servics
 
 	kubectl delete deploy,rs,po,svc --all
+
+-------------------------------------------------
+		Delete Cluster
+-------------------------------------------------
+
+	gcloud container clusters delete hello-cluster
 
 -------------------------------------------------
 		General

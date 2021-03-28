@@ -8,6 +8,8 @@
 
 	git clone https://github.com/hashmisf/k8s-gcp-training.git
 
+	cd ~/k8s-gcp-training/
+
 2. Build an image
 2.1 Build Image
 ------------------
