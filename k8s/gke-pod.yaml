@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: myapp-container
-    image: hello:v1
+    image: gcr.io/custom-citadel-306222/hello:v1
     ports:
       - containerPort: 8080
