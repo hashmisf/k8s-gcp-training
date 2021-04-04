@@ -5,7 +5,7 @@
 
 # Package code into Docker container - tag as version 1 ("build it")
 
-	docker build -t gcr.io/[Project-Id]/hello:v1 ~/k8s-gcp-training/app
+	docker build -t gcr.io/custom-citadel-306222/hello:v1 ~/k8s-gcp-training/app
 
 # Check status of images to ensure success
 
@@ -18,13 +18,19 @@
 
 # Push Docker container into Container Registry
 
-	docker push gcr.io/[Project-Id]/hello:v1
+	docker push gcr.io/custom-citadel-306222/hello:v1
 
 # Create Pod from this docker image
 
 	kubectl create -f ~/k8s-gcp-training/k8s/gke-pod.yaml
 
+# Check your pod output
+
+	kubectl exec -it my-pod -- curl localhost:8080/greeting
+
 # Statically resize the node pool/cluster (If more than one pool per cluster, specify pool with --node-pool [POOL-NAME])
+
+	kubectl get nodes
 
 	gcloud container clusters resize hello-cluster --num-nodes 3 
 	
