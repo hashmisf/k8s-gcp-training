@@ -1,0 +1,29 @@
+# Package code into Docker container - tag as version 1 ("build it")
+
+	docker build -t gcr.io/[Project-Id]/hello:v1 ~/k8s-gcp-training/app
+
+# Check status of images to ensure success
+
+	docker images
+
+# Push container into Container Registry ("push and store it")
+# Authenticate gcloud as a Docker credential helper 
+
+	gcloud auth configure-docker
+
+# Push Docker container into Container Registry
+
+	docker push gcr.io/[Project-Id]/hello:v1
+
+# Create Pod from this docker image
+
+	kubectl create -f ~/k8s-gcp-training/k8s/gke-pod.yaml
+
+# Statically resize the node pool/cluster (If more than one pool per cluster, specify pool with --node-pool [POOL-NAME])
+
+	gcloud container clusters resize hello-cluster --size 3 
+	
+# Autoscaling cluster 
+
+	gcloud container clusters update hello-cluster --enable-autoscaling --min-nodes 2 --max-nodes 3
+
